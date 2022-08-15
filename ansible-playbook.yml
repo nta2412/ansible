@@ -1,0 +1,9 @@
+- hosts: webserver
+  vars:
+     package: httpd
+  tasks:
+      - name: Install httpd
+        yum:
+            name: "{{package}}"
+            state: latest
+
