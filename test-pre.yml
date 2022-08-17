@@ -3,6 +3,10 @@
   gather_facts: no
 
   tasks:
+  - name: Validate logstash Version
+    fail: msg="Invalid ELK Version"
+    when: elk_version is undefined or not elk_version is match("\d+\.\d+\.\d+")
+
   - name: Get logstash current version
     command: rpm -q logstash --qf %{VERSION}
     args:
