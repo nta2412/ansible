@@ -4,7 +4,7 @@
 #- name: logstash-upgrade
 #  import_playbook: test-logstash-up.yml
 #- name: elasticsearch-rolling-upgrade
-  import_playbook: elasticsearch-rolling-upgrade.yml
+#  import_playbook: elasticsearch-rolling-upgrade.yml
 
-#- name: kibana-upgrade
+- name: kibana-upgrade
   import_playbook: kibana-upgrade.yml
