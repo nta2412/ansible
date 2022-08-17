@@ -19,7 +19,7 @@
 #      name: logstash-{{ elk_version }}
 #      download_only: yes
 #    when: version_found.stdout is version_compare(elk_version, '<')
-- hosts: elasticsearch
+- hosts: Node3_clone
   gather_facts: no
 
   # vars:
@@ -31,7 +31,7 @@
     when: elk_version is undefined or not elk_version is match("\d+\.\d+\.\d+")
 
   - name: Get elasticsearch current version
-    command: rpm -q elasticsearch --qf %{VERSION}
+    command: rpm -q /usr/share/logstash/bin/logstash --qf %{VERSION}
     args:
       warn: no
     changed_when: False
