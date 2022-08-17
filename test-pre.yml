@@ -31,7 +31,7 @@
     when: elk_version is undefined or not elk_version is match("\d+\.\d+\.\d+")
 
   - name: Get elasticsearch current version
-    command: rpm -q /usr/share/logstash/bin/logstash --qf %{VERSION}
+    command: rpm -q /usr/share/elasticsearch/bin/elasticsearch --qf %{VERSION}
     args:
       warn: no
     changed_when: False
