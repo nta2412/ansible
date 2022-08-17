@@ -7,4 +7,4 @@
 #  import_playbook: elasticsearch-rolling-upgrade.yml
 
 - name: kibana-upgrade
-  import_playbook: kibana-upgrade.yml
+  import_playbook: test-kibana-up.yml
