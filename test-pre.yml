@@ -8,7 +8,7 @@
     when: elk_version is undefined or not elk_version is match("\d+\.\d+\.\d+")
 
   - name: Get logstash current version
-    command: ./logstash -V
+    command: usr/share/logstash/bin/logstash -V
     register: version_found
 
   - name: Pre-download logstash install package
