@@ -8,15 +8,16 @@
     when: elk_version is undefined or not elk_version is match("\d+\.\d+\.\d+")
 
   - name: Get logstash current version
+    shell: "/usr/share/logstash/bin/logstash --version"
+    sudo: yes
+    register: version_found
     # command: rpm -q logstash --qf %{VERSION}
     # command: dpkg -s logstash 
     # command: sudo /usr/share/logstash/bin/logstash --version
     #args:
     #  warn: no
     #changed_when: False
-    shell: "/usr/share/logstash/bin/logstash --version"
-    sudo: yes
-    register: version_found
+
 
   - name: Pre-download logstash install package
     yum:
