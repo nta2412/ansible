@@ -19,9 +19,9 @@
     debug:
       var: version_found.stdout
   
-  #- name: Pre-download logstash install package
-   # yum:
-    #  name: logstash-{{ elk_version }}
-     # download_only: yes
-    #when: version_found.stdout is version_compare(elk_version, '<')
+  - name: Pre-download logstash install package
+    yum:
+      name: logstash-{{ elk_version }}
+      download_only: yes
+    when: version_found.stdout is version_compare(elk_version, '<')
 
