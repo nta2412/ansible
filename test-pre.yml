@@ -19,7 +19,7 @@
     register: version_found
   - name: getversion
     debug:
-      var: version_found.stdout
+      var: version_found
   
   - name: Pre-download logstash install package
     yum:
