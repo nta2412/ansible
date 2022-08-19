@@ -16,7 +16,9 @@
       warn: no
     changed_when: False
     register: version_found
-    debug: version_found
+  - name: getversion
+    debug:
+    var: version_found
   
   #- name: Pre-download logstash install package
    # yum:
