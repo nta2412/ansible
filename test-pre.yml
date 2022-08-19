@@ -9,7 +9,6 @@
   - name: Get logstash current version
     command:
          cmd: dpkg -s logstash
-         cmd: grep '^Version:'
     #command:
      #    cmd: /usr/share/logstash/bin/logstash --version
     args:
@@ -18,7 +17,7 @@
     register: version_found
   - name: getversion
     debug:
-      var: version_found
+      var: version_found.stdout.Version
   
   #- name: Pre-download logstash install package
    # yum:
