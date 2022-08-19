@@ -6,29 +6,16 @@
   - name: Validate logstash Version
     fail: msg="Invalid ELK Version"
     when: elk_version is undefined or not elk_version is match("\d+\.\d+\.\d+")
-  #- name: Task name
-   # stat:
-    #  path: /usr/share/nano
-    #register: register_name
-  #- name: Task name2
-   # debug:
-    #  msg: "The file or directory exists"
-    #when: register_name.stat.exists
-  #- name: Task name3
-   # debug:
-    #  msg: "The file or directory not exists"
-    #when: not register_name.stat.exists
   - name: Get logstash current version
     # command: rpm -q logstash --qf %{VERSION}
     #command: 
      #     cmd: dpkg -s logstash 
     command:
          cmd: /usr/share/logstash/bin/logstash --version
-    #args:
-    #  warn: no
+    args:
+      warn: no
     changed_when: False
-
-
+    register: version_found
   - name: Pre-download logstash install package
     yum:
       name: logstash-{{ elk_version }}
