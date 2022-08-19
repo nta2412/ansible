@@ -12,8 +12,7 @@
     #command: 
      #     cmd: dpkg -s logstash 
     command:
-         chdir: /usr/share/logstash/bin
-         cmd: ./logstash --version
+         cmd: /usr/share/logstash/bin/logstash --version
     #args:
     #  warn: no
     changed_when: False
