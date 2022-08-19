@@ -7,7 +7,7 @@
     fail: msg="Invalid ELK Version"
     when: elk_version is undefined or not elk_version is match("\d+\.\d+\.\d+")
   - name: Get logstash current version
-    shell:
+    command:
           cmd: dpkg -s logstash | grep '^Version:'
     #command:
      #    cmd: dpkg-query --show logstash
