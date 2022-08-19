@@ -17,7 +17,7 @@
     register: version_found
   - name: getversion
     debug:
-      var: version_found.stdout.Version
+      var: version_found.stdout
   
   #- name: Pre-download logstash install package
    # yum:
