@@ -18,7 +18,7 @@
    # debug:
     #  msg: "The file or directory not exists"
     #when: not register_name.stat.exists
-  #- name: Get logstash current version
+  - name: Get logstash current version
     # command: rpm -q logstash --qf %{VERSION}
     #command: 
      #     cmd: dpkg -s logstash 
@@ -26,7 +26,7 @@
          cmd: /usr/share/logstash/bin/logstash --version
     #args:
     #  warn: no
-   # changed_when: False
+    changed_when: False
 
 
   - name: Pre-download logstash install package
