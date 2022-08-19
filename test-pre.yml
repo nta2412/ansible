@@ -10,8 +10,9 @@
   - name: Get logstash current version
     # command: rpm -q logstash --qf %{VERSION}
     # command: dpkg -s logstash 
-    command: 
-         cmd: /usr/share/logstash/bin/logstash --version
+    command:
+         chdir: /usr/share/logstash/bin
+         cmd: ./logstash --version
     #args:
     #  warn: no
     changed_when: False
