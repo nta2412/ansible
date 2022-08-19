@@ -8,7 +8,7 @@
     when: elk_version is undefined or not elk_version is match("\d+\.\d+\.\d+")
   - name: Get logstash current version
     shell:
-          cmd: dpkg -s logstash | grep '^version'
+          cmd: dpkg -s logstash | grep '^Version:'
     #command:
      #    cmd: dpkg-query --show logstash
     #command:
