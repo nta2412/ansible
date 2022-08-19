@@ -11,14 +11,15 @@
     #command: 
           #cmd: dpkg -s logstash | grep '^Version:'
     command:
-         cmd: /usr/share/logstash/bin/logstash %{VERSION}
+         cmd: /usr/share/logstash/bin/logstash --version
     args:
       warn: no
     changed_when: False
     register: version_found
-  - name: Pre-download logstash install package
-    yum:
-      name: logstash-{{ elk_version }}
-      download_only: yes
-    when: version_found.stdout is version_compare(elk_version, '<')
+  
+  #- name: Pre-download logstash install package
+   # yum:
+    #  name: logstash-{{ elk_version }}
+     # download_only: yes
+    #when: version_found.stdout is version_compare(elk_version, '<')
 
